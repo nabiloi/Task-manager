@@ -108,13 +108,13 @@ def main():
 
         # 1. Handle command-line arguments
         if cmd1 == "--help":
-            print("'add <Task name> deadline <deadline time>', to add a task and deadline(opsional)\n'delete <task_id>' to delete task(You can see task_id on 'tasks.txt' file)\n'complete <task_id> to mark spesific task to 'complete'\n'view' to view current tasks(use it withhout any value behind 'view')\n'json' to import to json\n'csv' to import to csv")
+            print("'add <Task name> deadline <deadline time>', to add a task and deadline(opsional)\n'delete <task_id>' to delete task(You can see task_id on 'Task_list.txt' file)\n'complete <task_id> to mark spesific task to 'complete'\n'view' to view current tasks(use it withhout any value behind 'view')\n'json' to import to json\n'csv' to import to csv")
             return # Keluar dari program setelah menampilkan help
 
         match cmd1:
             case "add":
-                # Contoh: python Task manager.py add "Belajar Python" deadline 2025-12-31
-                # sys.argv: [Task manager.py, "add", "Belajar Python", "deadline", "2025-12-31"]
+                # Contoh: python "Task manager.py" add "Belajar Python" deadline 2025-12-31
+                # sys.argv: ["Task manager.py", "add", "Belajar Python", "deadline", "2025-12-31"]
                 if len(sys.argv) < 3: # Butuh setidaknya: add <judul>
                     print("Usage: add <task title> [deadline <date>]")
                     return
@@ -138,8 +138,8 @@ def main():
                 save_tasks(tasks)
 
             case "delete" | "complete": # Gabungkan karena logikanya mirip
-                # Contoh: python Task manager.py delete 5
-                # sys.argv: [Task manager.py, "delete", "5"]
+                # Contoh: python "Task manager.py" delete 5
+                # sys.argv: ["Task manager.py", "delete", "5"]
                 if len(sys.argv) < 3: # Butuh setidaknya: delete <id>
                     print(f"Usage: {cmd1} <task_id>")
                     return
@@ -158,21 +158,21 @@ def main():
 
 
             case "view":
-                # Contoh: python Task manager.py view
-                # sys.argv: [Task manager.py, "view"]
+                # Contoh: python "Task manager.py" view
+                # sys.argv: ["Task manager.py", "view"]
                 if len(sys.argv) > 2: # 'view' harusnya tidak punya argumen tambahan
                     print("Usage: view (no additional arguments)")
                     return
                 view_task(tasks)
             
             case "json":
-              # Contoh: python Task manager.py json
-              # sys.argv: [Task manager.py, "json"]
+              # Contoh: python "Task manager.py" json
+              # sys.argv: ["Task manager.py", "json"]
               importing_json(tasks)
               
             case "csv":
-              # Contoh: python Task manager.py csv
-              # sys.argv: [Task manager.py, "csv"]
+              # Contoh: python "Task manager.py" csv
+              # sys.argv: ["Task manager.py", "csv"]
               importing_csv(tasks)
             
             case _: # Jika perintah tidak dikenali
@@ -212,9 +212,11 @@ def main():
                     delete_task(tasks, task_id)
                     
                 case "5":
+                  save_tasks(tasks)
                   importing_json(tasks)
                   
                 case "6":
+                  save_tasks(tasks)
                   importing_csv(tasks)
                   
                 case "7":
