@@ -6,14 +6,17 @@ A practical Python-based Command-Line Interface (CLI) application designed to ma
  * Multi-format Export: Built-in functionality to export task lists into .json and .csv formats (compatible with Excel).
  * Command Handling: Supports both interactive input and direct terminal arguments (e.g., python "Task manager.py" add "Task Name").
  * Error Prevention: Basic error handling for invalid IDs and file management.
+
 🛠️ Tech Stack
  * Language: Python 3.x
  * Standard Libraries: os, sys, json, csv
+
 📖 How to Use
  * Clone this repository.
  * Run the application:
    python "Task manager.py"
 
  * Use --help for command-line shortcuts or follow the on-screen menu.
+
 💡 About This Project
 I built this tool to practice translating real-world organization needs into a functional technical solution. Although I have moved towards operational roles, this project stands as proof of my foundational logic and ability to learn technical systems independently.
